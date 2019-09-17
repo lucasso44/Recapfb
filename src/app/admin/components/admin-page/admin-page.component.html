@@ -1,0 +1,48 @@
+<mat-toolbar color="primary" class="topbar">
+    <mat-toolbar-row>    
+        <button mat-button>
+            <mat-icon (click)="sidebar.toggle()">menu</mat-icon>
+        </button>
+        <button mat-button routerLink="/admin/dashboard">Admin</button>
+
+        <span class="menu-spacer"></span>
+
+        <div>
+            <button mat-button [matMenuTriggerFor]="menu">
+                <span>{{user.displayName}}</span>
+                <img class="profile-photo" [src]="user.photoUrl || '//:0'" alt="{{user.displayName}}">
+            </button>
+            <mat-menu #menu="matMenu" x-position="after" y-position="below" overlapTrigger="false">
+                <button mat-menu-item>
+                    <mat-icon>account_circle</mat-icon>
+                    <span>Account Settings</span>
+                </button>
+                <button mat-menu-item routerLink="/signout">
+                    <mat-icon>exit_to_app</mat-icon>
+                    <span>Logout</span>
+                </button>
+            </mat-menu>
+        </div>            
+    </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-drawer-container class="sidebar-container">
+    <mat-drawer mode="side" opened class="sidebar" #sidebar>
+        <mat-nav-list>
+            <mat-list-item>
+                <a matLine routerLink="/admin/dashboard">Dashboard</a>
+            </mat-list-item>            
+            <mat-list-item>
+                <a matLine routerLink="/admin/users">Users</a>
+            </mat-list-item>
+            <mat-list-item>
+                <a matLine routerLink="/admin/pathways">Pathways</a>
+            </mat-list-item>            
+        </mat-nav-list>
+    </mat-drawer>
+    <mat-drawer-content class="sidebar-content">     
+        <router-outlet></router-outlet>
+    </mat-drawer-content>
+</mat-drawer-container>
+
+

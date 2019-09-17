@@ -1,0 +1,29 @@
+<div class="mat-elevation-z8 p-4" *ngIf="user">   
+    <h3>{{ user.displayName }}</h3>
+    <p>{{ user.email }}</p>
+    <p>{{ user.bio }} </p>
+    <a routerLink="edit">Edit Profile</a>
+</div>
+
+<div class="mat-elevation-z8 p-4">   
+    <h3>Pathways</h3>
+    <button class="mat-raised-button mat-primary" routerLink="/admin/pathways/add">Add Pathway</button>
+    <mat-grid-list cols="4" rowHeight="100px">
+        <mat-grid-tile
+            *ngFor="let pathway of pathways"
+            [colspan]="2"
+            [rowspan]="1">
+            <mat-card routerLink="{{'/admin/pathways/' + pathway.id}}">
+                <mat-card-header>
+                  <mat-card-title>{{pathway.title}}</mat-card-title>
+                </mat-card-header>
+                <img mat-card-image [src]="pathway.imageUrl" alt="">
+                <mat-card-content>
+                    <p>
+                        {{pathway.description}}
+                    </p>
+                </mat-card-content>
+            </mat-card>            
+        </mat-grid-tile>
+    </mat-grid-list>    
+</div>

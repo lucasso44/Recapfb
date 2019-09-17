@@ -1,0 +1,42 @@
+<div class="mat-elevation-z8">
+    <h3>{{pathway.title}}                 
+        <button mat-icon-button color="primary" routerLink="edit">
+            <mat-icon aria-label="Edit">mode_edit</mat-icon>
+        </button> 
+    </h3>
+    <p>{{pathway.description}}</p>
+</div>
+
+<button mat-icon-button color="primary" routerLink="upload">
+    <mat-icon aria-label="Edit">add</mat-icon>
+</button>
+
+<button mat-icon-button color="primary" routerLink="reorder">
+    <mat-icon aria-label="Edit">reorder</mat-icon>
+</button>
+
+<button mat-icon-button color="primary" routerLink="preview">
+    <mat-icon aria-label="Preview">play_circle_filled</mat-icon>
+</button>
+
+<button mat-icon-button color="primary" routerLink="record">
+    <mat-icon aria-label="Preview">fiber_manual_record</mat-icon>
+</button>
+
+<button mat-raised-button (click)="close()" color="primary">Close</button>
+
+<div class="mat-elevation-z8">
+    <h3>Videos</h3>
+    <mat-list *ngFor="let video of videos; let i = index;">
+        <mat-list-item>
+            <mat-icon matListIcon>ondemand_video</mat-icon>
+            <h4 matLine>{{video.title}}</h4>
+            <span class="spacer"></span>            
+            <span>
+                <button mat-icon-button color="primary" (click)="deleteVideo(video)">
+                    <mat-icon aria-label="Delete">delete</mat-icon>
+                </button>       
+            </span>
+        </mat-list-item>
+    </mat-list>
+</div>

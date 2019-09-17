@@ -1,0 +1,29 @@
+.parent {
+    height: 100vh;
+    position: relative;
+    background: url('/assets/background.jpg') no-repeat top center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.child {
+    background-color: #fff;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 3rem;
+}
+
+.banner {
+    background-color: #005e94;
+    width: 300px;
+    padding: 1.4rem 0;
+    margin: 0 0 1rem 0;
+}
+
+.mat-form-field {
+    width: 100%;
+}

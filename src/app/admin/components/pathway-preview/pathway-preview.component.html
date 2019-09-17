@@ -1,0 +1,29 @@
+<div class="mat-elevation-z8">
+    <h3>{{pathway.title}}</h3>
+    <p>{{pathway.description}}</p>
+</div>
+<button class="mat-raised-button mat-primary" (click)="close()">Close</button>
+<div class="d-flex flex-row align-items-start">
+    <div class="w-50 pr-4">
+        <video
+            class="video-player"
+            #videoPlayer
+            width="100%" 
+            height="100%" 
+            controls 
+            controlslist="nodownload" 
+            disablePictureInPicture
+            preload="metadata"
+            [src]="videos[currentVideoIndex].url || '//:0'">
+                Your browser does not support the video tag.
+        </video>        
+    </div>
+    <div class="d-flex flex-column w-50">
+        <div class="w-100" *ngFor="let video of videos; let i = index;" 
+            [ngClass]="{'video-selected' : currentVideoIndex === i}"
+            >
+            <mat-icon (click)="playVideo(i)" matListIcon>ondemand_video</mat-icon>
+            <h4 (click)="playVideo(i)" matLine>{{video.title}}</h4>
+        </div>
+    </div>
+</div>

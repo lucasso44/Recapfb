@@ -1,0 +1,31 @@
+<div class="mat-elevation-z8">
+    <h3>{{pathway.title}}</h3>
+    <p>{{pathway.description}}</p>
+</div>
+
+<button mat-raised-button (click)="close()" color="primary">Close</button>
+<div class="mat-elevation-z8">
+    <h3>Videos</h3>
+    <input type="file" (change)="uploadVideos($event)" multiple>
+    <div *ngFor="let videoUploader of videoUploaders; let i = index;">
+        <input mat-input type="text" [(ngModel)]="videoUploader.video.title" placeholder="Title">
+        <button mat-icon-button color="primary" (click)="saveVideo(videoUploader)">
+            <mat-icon aria-label="Edit">save</mat-icon>
+        </button>         
+        <div *ngIf="(videoUploader.uploadPercent$ | async) as percentage">
+            Upload Progress:
+            <div>
+                <div>
+                    <mat-progress-bar class="progress-bar" mode="determinate" [value]="percentage">
+                    </mat-progress-bar>
+                </div>
+                <div>
+                    <button mat-icon-button color="primary" (click)="cancelUpload(videoUploader, i)">
+                        <mat-icon aria-label="Edit">cancel</mat-icon>
+                    </button>                     
+                </div>
+            </div>
+            <span>{{percentage / 100 | percent}}</span>
+        </div>        
+    </div>
+</div>

@@ -1,0 +1,37 @@
+<div class="form-container">
+    <h3>Add Pathway</h3>
+    <form [formGroup]="pathwayAddForm" (ngSubmit)="save(true)">
+        <p>
+            <mat-form-field appearance="standard">
+                <mat-label>Title</mat-label>
+                <input matInput placeholder="Title" formControlName="title">
+                <mat-hint>Enter a display title.</mat-hint>
+            </mat-form-field>
+        </p>    
+        <p>
+            <mat-form-field>
+                <mat-label>Description</mat-label>
+                <textarea matInput placeholder="Description" formControlName="description">
+                </textarea>
+                <mat-hint>Enter a description.</mat-hint>
+            </mat-form-field>
+        </p>
+        <div class="image-upload">
+            <p>Image</p>
+            <img class="pathway-image" [src]="pathway.imageUrl || '//:0'" alt="{{pathway.title}}">
+            <input type="file" (change)="uploadImage($event)">
+            <div class="image-upload-progress" *ngIf="(uploadPercent$ | async) as percentage">
+                Upload Progress:
+                <mat-progress-bar class="progress-bar" mode="determinate" [value]="percentage">
+                </mat-progress-bar>
+                <span>{{percentage / 100 | percent}}</span>
+            </div>
+        </div>
+        <div class="action-bar">
+            <button class="mat-raised-button mat-primary" type="submit">Add</button>&nbsp;
+            <button class="mat-raised-button" type="button" (click)="close()">Close</button>
+        </div>
+    </form>
+</div>
+
+

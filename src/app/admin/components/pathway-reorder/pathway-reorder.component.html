@@ -1,0 +1,9 @@
+<div class="mat-elevation-z8">
+    <h3>{{pathway.title}}</h3>
+    <p>{{pathway.description}}</p>
+</div>
+<button class="mat-raised-button mat-primary" (click)="saveOrder()">Save</button>&nbsp;
+<button class="mat-raised-button mat-primary" (click)="close()">Close</button>
+<div cdkDropList class="reorder-list" (cdkDropListDropped)="drop($event)">
+    <div class="reorder-list-item" *ngFor="let video of videos" cdkDragLockAxis="y" cdkDrag>{{video.title}}</div>
+</div>

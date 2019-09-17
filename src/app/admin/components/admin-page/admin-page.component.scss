@@ -1,0 +1,38 @@
+.topbar {
+    height:50px;
+}
+
+.sidebar-container {
+    height: calc(100vh - 50px);
+}
+
+.sidebar {
+    width: 200px;
+}
+
+.sidebar-content {
+    padding: 20px 10px;
+}
+
+.menu-spacer{
+    flex: 1 1 auto;
+}
+
+.profile-photo {
+    border-radius: 50%;
+    border: 2px solid #fff;
+    height: 40px;
+    width: 40px;
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: multiply;
+    vertical-align: middle;
+    text-align: center;
+    color: transparent;
+    text-decoration: none;
+    margin-left: 10px;
+}
+
+.mat-toolbar.mat-primary {
+    background-color: #005e94;
+}

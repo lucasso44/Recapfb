@@ -1,0 +1,37 @@
+<div class="form-container">
+    <h3>Edit Profile</h3>
+    <form [formGroup]="userProfileEditForm" (ngSubmit)="save()">
+        <p>
+            <mat-form-field appearance="standard">
+                <mat-label>Display Name</mat-label>
+                <input matInput placeholder="Display Name" formControlName="displayName">
+                <mat-hint>Enter a display name.</mat-hint>
+            </mat-form-field>
+        </p>    
+        <p>
+            <mat-form-field>
+                <mat-label>Bio</mat-label>
+                <textarea matInput placeholder="Bio" formControlName="bio">
+                </textarea>
+                <mat-hint>Enter a short bio.</mat-hint>
+            </mat-form-field>
+        </p>
+        <div class="photo-upload">
+            <p>Photo</p>
+            <img class="profile-photo" [src]="user.photoUrl || '//:0'" alt="{{user.displayName}}">
+            <input type="file" (change)="uploadProfileImage($event)">
+            <div class="photo-upload-progress" *ngIf="(uploadPercent$ | async) as percentage">
+                Upload Progress:
+                <mat-progress-bar class="progress-bar" mode="determinate" [value]="percentage">
+                </mat-progress-bar>
+                <span>{{percentage / 100 | percent}}</span>
+            </div>
+        </div>
+        <div class="action-bar">
+            <button class="mat-raised-button mat-primary" (click)="save()">Save</button>&nbsp;
+            <button class="mat-raised-button" type="button" (click)="close()">Close</button>
+        </div>
+    </form>
+</div>
+
+
