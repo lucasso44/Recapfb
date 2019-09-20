@@ -1,6 +1,11 @@
 <!doctype html>
 <html lang="en">
 <head>
+  <script>
+      if (global === undefined) {
+        var global = window;
+      }
+    </script>  
   <meta charset="utf-8">
   <title>RecapFb</title>
   <base href="/">
@@ -8,22 +13,6 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
   <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
-
-  <script src="assets/RecordRTC.min.js"></script>
-  <!-- web streams API polyfill to support Firefox -->
-  <script src="https://unpkg.com/@mattiasbuelens/web-streams-polyfill/dist/polyfill.min.js"></script>
-
-  <!-- ../libs/DBML.js to fix video seeking issues -->
-  <script src="https://www.webrtc-experiment.com/EBML.js"></script>
-
-  <!-- for Edge/FF/Chrome/Opera/etc. getUserMedia support -->
-  <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
-  <script src="https://www.webrtc-experiment.com/DetectRTC.js"> </script>
-
-  <!-- video element -->
-  <link href="https://www.webrtc-experiment.com/getHTMLMediaElement.css" rel="stylesheet">
-  <script src="https://www.webrtc-experiment.com/getHTMLMediaElement.js"></script>      
-  
 </head>
 <body class="mat-typography">
   <app-root></app-root>

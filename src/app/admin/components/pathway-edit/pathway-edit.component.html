@@ -1,6 +1,10 @@
 <div class="form-container">
-    <h3>Add Pathway</h3>
-    <form [formGroup]="pathwayAddForm" (ngSubmit)="save(true)">
+    <h3>Edit Pathway</h3>
+    <button mat-raised-button color="primary" (click)="uploadCourses()">Upload Courses</button>
+    <p>Use <b>typeahead</b> to subscribe to search term and load async items.</p>
+    <label>Multi select + Typeahead + Custom items (tags)</label>
+   
+    <form [formGroup]="pathwayEditForm" (ngSubmit)="save(true)">
         <p>
             <mat-form-field appearance="standard">
                 <mat-label>Title</mat-label>
@@ -16,6 +20,35 @@
                 <mat-hint>Enter a description.</mat-hint>
             </mat-form-field>
         </p>
+        <ng-select [items]="videos$ | async"
+                bindLabel="title"
+                [addTag]="true"
+                [multiple]="true"
+                [hideSelected]="true"
+                [loading]="videoLoading"
+                [typeahead]="videoInput$"
+                placeholder="Hello"
+                formControlName="selectedVideos">
+        </ng-select>
+        <br>
+        
+        <div style="margin-bottom:100px">
+            Selected videos: {{getSelectedVideos | json}}
+        </div>         
+
+        <p>By providing custom function to <b>[addTag]</b> you can modify result of new tag</p>
+
+        <ng-select [items]="companies"
+                   [addTag]="addTagFn"
+                   [hideSelected]="true"
+                   multiple="true"
+                   bindLabel="title"
+                   formControlName="selectedCompanies">
+        </ng-select>
+        
+        <br>
+        Selected value: {{getSelectedCompanies | json}}
+
         <div class="image-upload">
             <p>Image</p>
             <img class="pathway-image" [src]="pathway.imageUrl || '//:0'" alt="{{pathway.title}}">
@@ -28,7 +61,7 @@
             </div>
         </div>
         <div class="action-bar">
-            <button class="mat-raised-button mat-primary" type="submit">Add</button>&nbsp;
+            <button class="mat-raised-button mat-primary" type="submit">Save</button>&nbsp;
             <button class="mat-raised-button" type="button" (click)="close()">Close</button>
         </div>
     </form>

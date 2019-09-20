@@ -4,9 +4,9 @@
     
     <button class="mat-raised-button mat-primary" (click)="close()">Close</button>
     <button mat-raised-button color="primary" (click)="captureScreen()">Capture</button>
-    <button mat-raised-button color="primary" (click)="startRecording()">Start Recording</button>
-    <button mat-raised-button color="primary" (click)="pauseRecording()">Pause Recording</button>
-    <button mat-raised-button color="primary" (click)="stopRecording()">Stop Recording</button>
+    <button mat-raised-button color="primary" [disabled]="status != 'inactive'" (click)="startRecording()">Start Recording</button>
+    <button mat-raised-button color="primary" [disabled]="status === undefined || status === 'inactive'" (click)="pauseRecording()">Pause Recording</button>
+    <button mat-raised-button color="primary" [disabled]="status === undefined || status === 'inactive'" (click)="stopRecording()">Stop Recording</button>
     
     <hr>
     
@@ -16,6 +16,13 @@
     </video>
 
     <video #videoPlayer controls autoplay playsinline 
-        [src]="videoURL || '://0'"
+        [src]="videoURL"
         width="400px" height="400px">
     </video>    
+
+    <div #countdown class="countdown" *ngIf="countdownValue > 0">
+        <div class="countdown-value">
+            {{countdownValue}}
+        </div>
+    </div>
+    

@@ -6,7 +6,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from '../../environments/environment';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireStorage } from '@angular/fire/storage';
-import { MatVideoModule } from 'mat-video';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
   imports: [
@@ -15,7 +15,7 @@ import { MatVideoModule } from 'mat-video';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     ReactiveFormsModule,
-    MatVideoModule
+    NgSelectModule
   ],
   providers: [
     AngularFirestore,
@@ -25,7 +25,7 @@ import { MatVideoModule } from 'mat-video';
     FormsModule,
     NgbModule,
     ReactiveFormsModule,
-    MatVideoModule
+    NgSelectModule
   ]
 })
 export class CoreModule {}
