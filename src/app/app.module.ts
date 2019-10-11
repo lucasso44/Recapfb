@@ -8,18 +8,9 @@ import { MaterialModule } from './core/material.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { HomePageComponent } from './components/home-page/home-page.component';
-import { SignupComponent } from './components/signup/signup.component';
-import { SigninComponent } from './components/signin/signin.component';
-import { SignoutComponent } from './components/signout/signout.component';
-
 @NgModule({
   declarations: [
-    AppComponent,
-    HomePageComponent,
-    SignupComponent,
-    SigninComponent,
-    SignoutComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,

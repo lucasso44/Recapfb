@@ -7,6 +7,7 @@ import { environment } from '../../environments/environment';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { NgSelectModule } from '@ng-select/ng-select';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     ReactiveFormsModule,
-    NgSelectModule
+    NgSelectModule,
+    HttpClientModule
   ],
   providers: [
     AngularFirestore,
@@ -25,7 +27,8 @@ import { NgSelectModule } from '@ng-select/ng-select';
     FormsModule,
     NgbModule,
     ReactiveFormsModule,
-    NgSelectModule
+    NgSelectModule,
+    HttpClientModule
   ]
 })
 export class CoreModule {}

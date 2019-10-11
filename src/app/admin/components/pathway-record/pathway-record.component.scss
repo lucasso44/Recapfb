@@ -2,11 +2,18 @@
     position: relative;
 }
 .countdown-value {
+    position: absolute;
+    top: -300px;
+    left: 100px;
+    display: inline;
+    padding: 5rem 3.5rem;    
+    background-color: red;
     border-radius: 50%;
-    width: 36px;
-    height: 36px;
-    padding: 8px;
-    color: #fff;
-    background: red;
+    font-size: 10rem;
+    color: #fff;    
+}
+
+.countdown-value span {       
+    vertical-align: middle;
     text-align: center;
 }

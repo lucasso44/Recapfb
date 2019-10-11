@@ -2,7 +2,9 @@
             Recap Record
         </h3>
     
-    <button class="mat-raised-button mat-primary" (click)="close()">Close</button>
+    <button mat-icon-button color="primary" (click)="close()">
+        <mat-icon aria-label="Edit">arrow_back</mat-icon>
+    </button>
     <button mat-raised-button color="primary" (click)="captureScreen()">Capture</button>
     <button mat-raised-button color="primary" [disabled]="status != 'inactive'" (click)="startRecording()">Start Recording</button>
     <button mat-raised-button color="primary" [disabled]="status === undefined || status === 'inactive'" (click)="pauseRecording()">Pause Recording</button>
@@ -16,13 +18,13 @@
     </video>
 
     <video #videoPlayer controls autoplay playsinline 
-        [src]="videoURL"
+        [src]="videoURL || '//:0'"
         width="400px" height="400px">
     </video>    
 
     <div #countdown class="countdown" *ngIf="countdownValue > 0">
         <div class="countdown-value">
-            {{countdownValue}}
+            <span>{{countdownValue}}</span>
         </div>
     </div>
     
